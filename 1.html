@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contoh Halaman HTML</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to left, #0077cc, #ff0000); /* Gradient dari biru laut ke ungu */
+      color: #333;
+      margin: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+    }
+
+    section {
+      margin: 20px 0;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden; /* Mengatasi float yang melewati batas */
+    }
+
+    .player {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+
+    .player-info {
+      flex-grow: 1;
+    }
+
+    .player-image {
+      width: 100px; /* Sesuaikan lebar gambar */
+      height: 100px; /* Sesuaikan tinggi gambar */
+      background-color: #ddd; /* Warna latar belakang sementara */
+      margin-left: 10px;
+      border-radius: 50%; /* Untuk bentuk bulat */
+      overflow: hidden; /* Mengatasi gambar yang tidak terlihat sepenuhnya */
+    }
+
+    .player-image img {
+      width: 100%; /* Mengisi lebar container */
+      height: auto; /* Menyesuaikan tinggi secara proporsional */
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #333;
+      color: white;
+      margin-top: 20px;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .overlay img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Selamat Datang di Neko E-Sport</h1>
+  </header>
+
+  <section>
+    <h2>DAFTAR PEMAIN</h2>
+    <div class="player" onclick="toggleOverlay('https://i.pinimg.com/564x/e4/90/23/e49023d4e68ff51a8b5cf2c1d80100e2.jpg')">
+      <div class="player-info">
+        <p>1. Nama: Taufikurrahman</p>
+        <p>   NickName: ShiroNeko</p>
+        <p>   Role: Gold Lane</p>
+        <p>   Hero Signature: Clint</p>
+      </div>
+      <div class="player-image">
+        <img src="https://i.pinimg.com/564x/e4/90/23/e49023d4e68ff51a8b5cf2c1d80100e2.jpg" alt="ShiroNeko Image">
+      </div>
+    </div> 
+    <div class="player" onclick="toggleOverlay('https://i.pinimg.com/564x/41/94/3f/41943f0ceb9f1c3751f19c10602eeca5.jpg')">
+      <div class="player-info">
+        <P>2. Nama: Mikasa</P>
+        <p>   NickName: KuroNeko</p>
+        <p>   Role: Jungler</p>
+        <p>   Hero Signature: Fanny</p>
+      </div>
+      <div class="player-image">
+        <img src="https://i.pinimg.com/564x/41/94/3f/41943f0ceb9f1c3751f19c10602eeca5.jpg" alt="Mikasa Image">
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="toggleOverlay()">
+      <span class="close-button">&#10006;</span>
+      <img id="overlay-image" alt="Overlay Image">
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Contoh Halaman HTML</p>
+  </footer>
+
+  <script>
+    function toggleOverlay(src) {
+      var overlay = document.getElementById('overlay');
+      var overlayImage = document.getElementById('overlay-image');
+
+      if (overlay.style.display === 'flex') {
+        overlay.style.display = 'none';
+      } else {
+        overlayImage.src = src;
+        overlay.style.display = 'flex';
+      }
+    }
+  </script>
+</body>
+</html>
